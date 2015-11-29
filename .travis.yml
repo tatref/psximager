@@ -1,3 +1,10 @@
+language: cpp
+
+install:
+- sudo apt-get install autotools-dev
+- sudo apt-get install automake
+- sudo apt-get install libvcdinfo
+
 script: 
 - $CXX --version
 - configure
