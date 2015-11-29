@@ -7,6 +7,6 @@ install:
 
 script: 
 - $CXX --version
-- chmod +x configure.ac
-- ./configure.ac
+- autoreconf -fvi
+- ./configure
 - make
