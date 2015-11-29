@@ -8,14 +8,17 @@ configuration:
 # - Release
  
 build_script:
- - c:\mingw\bin\mingw-get install mingw32-autoconf 
- - c:\mingw\bin\mingw-get install binutils
- - c:\mingw\bin\mingw-get install mingw-runtime
- - c:\mingw\bin\mingw-get install w32api
- - c:\mingw\bin\mingw-get install gcc-core
- - c:\mingw\bin\mingw-get install gcc
- - c:\mingw\bin\mingw-get install mingw32-make
- - c:\mingw\bin\mingw-get install mingw-utils
- - dir c:\mingw\bin
+- C:\msys64\msys2_shell.bat
+- pacman -Sy
+
+# - c:\mingw\bin\mingw-get install mingw32-autoconf 
+# - c:\mingw\bin\mingw-get install binutils
+# - c:\mingw\bin\mingw-get install mingw-runtime
+# - c:\mingw\bin\mingw-get install w32api
+# - c:\mingw\bin\mingw-get install gcc-core
+# - c:\mingw\bin\mingw-get install gcc
+# - c:\mingw\bin\mingw-get install mingw32-make
+# - c:\mingw\bin\mingw-get install mingw-utils
+# - dir c:\mingw\bin
 # - c:\mingw\bin\mingw-get show
- - c:\mingw\bin\make
+# - c:\mingw\bin\make
