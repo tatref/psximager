@@ -2,12 +2,20 @@ version: 1.0.{build}
 
 platform: 
  - x86
- - x64
+# - x64
 configuration: 
  - Debug
- - Release
+# - Release
  
 build_script:
  - c:\mingw\bin\mingw-get install mingw32-autoconf 
- - c:\mingw\bin\mingw-get show
+ - c:\mingw\bin\mingw-get install binutils
+ - c:\mingw\bin\mingw-get install mingw-runtime
+ - c:\mingw\bin\mingw-get install w32api
+ - c:\mingw\bin\mingw-get install gcc-core
+ - c:\mingw\bin\mingw-get install gcc
+ - c:\mingw\bin\mingw-get install mingw32-make
+ - c:\mingw\bin\mingw-get install mingw-utils
+ - dir c:\mingw\bin
+# - c:\mingw\bin\mingw-get show
  - c:\mingw\bin\make
