@@ -8,4 +8,5 @@ configuration:
  - Release
  
 build_script:
- - make
+ - c:\mingw\bin\autoreconf --install -I m4
+ - c:\mingw\bin\make
