@@ -8,5 +8,6 @@ configuration:
  - Release
  
 build_script:
+ - c:\mingw\bin\mingw-get install mingw32-autoconf 
  - c:\mingw\bin\mingw-get show
  - c:\mingw\bin\make
