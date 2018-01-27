@@ -37,6 +37,23 @@ From msys2 shell run next commands:
 
 If you still want to use autoreconf (native way) do following:
 
-$ ./bootstrap
-$ PKG_CONFIG=i686-w64-mingw32-pkg-config LIBCDIO_LIBS="-LC:/msys64/mingw32/lib -lcdio -lm -lwinmm -liconv" LIBISO9660_LIBS="-LC:/msys64/mingw32/lib -liso9660 -liconv -lcdio -lm -lwinmm -liconv" LIBVCDINFO_LIBS="-LC:/msys64/mingw32/lib -lvcdinfo -liso9660 -lcdio -lm -lwinmm -liconv" ./configure --with-boost-libdir=/mingw32/lib
-$ make
+    $ ./bootstrap
+    $ PKG_CONFIG=i686-w64-mingw32-pkg-config LIBCDIO_LIBS="-LC:/msys64/mingw32/lib -lcdio -lm -lwinmm -liconv" LIBISO9660_LIBS="-LC:/msys64/mingw32/lib -liso9660 -liconv -lcdio -lm -lwinmm -liconv" LIBVCDINFO_LIBS="-LC:/msys64/mingw32/lib -lvcdinfo -liso9660 -lcdio -lm -lwinmm -liconv" ./configure --with-boost-libdir=/mingw32/lib
+    $ make
+
+To transfer binaries to another PC you will need next DLLs from /mingw32/bin or
+/mingw64/bin (depending on target) directories:
+
+    libboost_filesystem-mt.dll
+    libboost_regex-mt.dll
+    libboost_system-mt.dll
+    libcdio-16.dll
+    libgcc_s_dw2-1.dll
+    libgcc_s_seh-1.dll
+    libiconv-2.dll
+    libicudt58.dll
+    libicuuc58.dll
+    libiso9660-10.dll
+    libstdc++-6.dll
+    libvcdinfo-0.dll
+    libwinpthread-1.dll
