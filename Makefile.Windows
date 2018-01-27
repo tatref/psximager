@@ -1,0 +1,20 @@
+.PHONY: all clean
+
+CXX = $(TOOLPREFIX)g++
+PACKAGEFLAGS = -DPACKAGE_NAME=\"PSXImager\" -DPACKAGE_TARNAME=\"psximager\" -DPACKAGE_VERSION=\"2.0\" -DPACKAGE_STRING=\"PSXImager\ 2.0\" -DPACKAGE_BUGREPORT=\"cb@cebix.net\" -DPACKAGE_URL=\"\" -DPACKAGE=\"psximager\" -DVERSION=\"2.0\" -DHAVE_BOOST=/\*\*/ -DHAVE_BOOST_FILESYSTEM=/\*\*/ -DHAVE_BOOST_REGEX=/\*\*/ -DHAVE_BOOST_SYSTEM=/\*\*/
+CPPFLAGS = -Isrc -g -O2
+LDFLAGS = -lvcdinfo -liso9660 -lcdio -lm -lwinmm -liconv -lboost_filesystem-mt -lboost_regex-mt -lboost_system-mt
+
+all: psxbuild psxinject psxrip
+
+psxbuild: src/psxbuild.cpp
+	$(CXX) $(PACKAGEFLAGS) $(CPPFLAGS) -o $@ src/psxbuild.cpp $(LDFLAGS)
+
+psxinject: src/psxinject.cpp
+	$(CXX) $(PACKAGEFLAGS) $(CPPFLAGS) -o $@ src/psxinject.cpp $(LDFLAGS)
+
+psxrip: src/psxrip.cpp
+	$(CXX) $(PACKAGEFLAGS) $(CPPFLAGS) -o $@ src/psxrip.cpp $(LDFLAGS)
+
+clean:
+	rm psxbuild psxinject psxrip

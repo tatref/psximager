@@ -1,0 +1,42 @@
+To compile these tools for Windows you will need msys2 environment.
+http://www.msys2.org/
+
+From msys2 shell run next commands:
+
+    1. Install development packages:
+
+        $ pacman -S --needed make ...
+
+            For x86 target:
+
+                mingw-w64-i686-toolchain
+                mingw-w64-i686-boost
+                mingw-w64-i686-libcdio
+                mingw-w64-i686-vcdimager
+
+            For x86_64 target:
+
+                mingw-w64-x86_64-toolchain
+                mingw-w64-x86_64-boost
+                mingw-w64-x86_64-libcdio
+                mingw-w64-x86_64-vcdimager
+
+    2. Add mingw binaries to path:
+
+        $ export PATH=$PATH:/mingw32/bin:/mingw64/bin
+
+    3. Build tools:
+
+        x86 target:
+
+            $ TOOLPREFIX=i686-w64-mingw32- make -f Makefile.Windows
+
+        x86_64 target:
+
+            $ TOOLPREFIX=x86_64-w64-mingw32- make -f Makefile.Windows
+
+If you still want to use autoreconf (native way) do following:
+
+$ ./bootstrap
+$ PKG_CONFIG=i686-w64-mingw32-pkg-config LIBCDIO_LIBS="-LC:/msys64/mingw32/lib -lcdio -lm -lwinmm -liconv" LIBISO9660_LIBS="-LC:/msys64/mingw32/lib -liso9660 -liconv -lcdio -lm -lwinmm -liconv" LIBVCDINFO_LIBS="-LC:/msys64/mingw32/lib -lvcdinfo -liso9660 -lcdio -lm -lwinmm -liconv" ./configure --with-boost-libdir=/mingw32/lib
+$ make
