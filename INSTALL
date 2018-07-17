@@ -59,3 +59,20 @@ Compile:
 Compiled files are under src/:
   $ ls src/psx{build,inject,rip}
   src/psxbuild  src/psxinject  src/psxrip
+
+Docker compilation and usage
+============================
+  $ git clone https://github.com/tatref/psximager
+  $ docker build -t psximager .
+
+To grab the binaries on your host (these will be under ./bin/)
+  $ docker run -v $PWD/bin:/psximager/bin psximager /bin/bash -c "cd /usr/local/bin/ && cp psxbuild psxinject psxrip /psximager/bin/"
+  $ ./bin/psxrip ...
+
+You can also use the commands via docker, if you use volumes
+  $ docker run --rm -it \
+      -v $PWD/dump:/dump \                          # the dump will be there
+      -v $HOME/CTR.bin:/cdrom.bin:ro \              # source cdrom
+      -v $HOME/CTR.cue:/cdrom.cue:ro \              # cue
+      psximager \
+      psxrip --lbn-table --verbose /cdrom.bin       # command to run
