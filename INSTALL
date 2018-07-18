@@ -63,6 +63,7 @@ Compiled files are under src/:
 Docker compilation and usage
 ============================
   $ git clone https://github.com/tatref/psximager
+  $ cd psximager
   $ docker build -t psximager .
 
 To grab the binaries on your host (these will be under ./bin/)
